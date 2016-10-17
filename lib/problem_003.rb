@@ -8,10 +8,10 @@ require 'problem'
 
 class Problem003 < Problem
   THE_NUMBER = 600_851_475_143
-  FIRST_PRRIME = 2
+  FIRST_PRIME = 2
 
   def initialize
-    @result = FIRST_PRRIME
+    @result = FIRST_PRIME
     @top = THE_NUMBER
   end
 

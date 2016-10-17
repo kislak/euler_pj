@@ -1,22 +1,52 @@
-#By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
-#What is the 10 001st prime number?
+# By listing the first six prime numbers:
+# 2, 3, 5, 7, 11, and 13,
+# we can see that the 6th prime is 13.
+# What is the 10 001st prime number?
+#
+# 104_743
 
-max = 1000000 #_000
-ar = []
+require 'problem'
 
-max.times{|n| ar[n+1] = 0}
+class Problem007 < Problem
+  LIMIT = 1_000_000 # _000
+  RANGE = (2..LIMIT)
+  RES_INDEX = 10_001
 
-ar.each_index do |index|
-  if ar[index+2] == 1
-    next
-  else
-    n = index+2
-    while (n = (n + (index+2))) < max
-      ar[n] = 1
+  def initialize
+    super
+    @sieve = []
+  end
+
+  def calculate
+    prepare_sieve
+    setup_sieve
+    cleanup_sieve
+    set_result
+  end
+
+  private
+
+  def prepare_sieve
+    LIMIT.times { |index| @sieve[index] = 0 }
+  end
+
+  def setup_sieve
+    RANGE.each do |current|
+      next if @sieve[current] == 1
+
+      index = current
+      while (current += index) < LIMIT
+        @sieve[current] = 1
+      end
     end
-  end  
+  end
+
+  def cleanup_sieve
+    @sieve.each_index { |index| @sieve[index] = index if @sieve[index].zero? }
+    @sieve.select! { |item| item != 1 }
+  end
+
+  def set_result
+    @result = @sieve[RES_INDEX]
+  end
 end
-
-ar.each_index{|index|  ar[index] = index if ar[index] == 0}
-
-puts ar.select{|e| e != 1}[10001]
