@@ -7,7 +7,11 @@ RESULTS = {
   problem_004: 906_609,
   problem_005: 232_792_560,
   problem_006: 25_164_150,
-  problem_007: 104_743
+  problem_007: 104_743,
+  problem_008: 23_514_624_000,
+  problem_009: 31_875_000,
+  problem_010: 142_913_828_922,
+  problem_011: 70_600_674
 }.freeze
 
 PROBLEMS_POSTFIXES = %w(
