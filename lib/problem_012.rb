@@ -61,7 +61,7 @@ ar_tr = ar
 
   res = ari.inject(1){|e, prod| prod * e}
 
-  if (res + 2) > 500
+  if (res + 2) >= 500
     puts res+2, ar_tr[ii], ii
     exit
   end 
