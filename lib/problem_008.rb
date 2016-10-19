@@ -1,7 +1,8 @@
-# Find the greatest product of five consecutive digits
+# Find the greatest product of five thirteen consecutive digits
 # in the 1000-digit number.
 
-s='
+class Problem008 < Problem
+  THE_NUMBER = '
 73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
 85861560789112949495459501737958331952853208805511
@@ -21,20 +22,25 @@ s='
 07198403850962455444362981230987879927244284909188
 84580156166097919133875499200524063689912560717606
 05886116467109405077541002256983155200055935729725
-71636269561882670428252483600823257530420752963450'
+71636269561882670428252483600823257530420752963450'.freeze
 
-ar = s.split.join.split('').map(&:to_i)
+  NUMBER_OF_DIGITS = 13
 
-max = 0 
-z = 0
+  def initialize
+    @ar = THE_NUMBER.split.join.split('').map(&:to_i)
+    @result = 0
+  end
 
-0.upto(ar.length-5) do |i|
-  v = (ar[i] * ar[i+1] * ar[i+2] * ar[i+3] * ar[i+4])
-  if (v > max)
-    max = v 
-    z = i
+  def calculate
+    0.upto(@ar.length - NUMBER_OF_DIGITS) do |idx|
+      product = calculate_product(idx)
+      @result = product if product > @result
+    end
+  end
+
+  def calculate_product(idx)
+    product = 1
+    NUMBER_OF_DIGITS.times { |index| product *= @ar[idx + index] }
+    product
   end
 end
-
-puts z
-puts max
