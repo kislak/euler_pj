@@ -26,16 +26,24 @@ class Problem007 < Problem
 
   private
 
+  def range
+    RANGE
+  end
+
+  def limit
+    LIMIT
+  end
+
   def prepare_sieve
-    LIMIT.times { |index| @sieve[index] = 0 }
+    limit.times { |index| @sieve[index] = 0 }
   end
 
   def setup_sieve
-    RANGE.each do |current|
+    range.each do |current|
       next if @sieve[current] == 1
 
       index = current
-      while (current += index) < LIMIT
+      while (current += index) < limit
         @sieve[current] = 1
       end
     end
