@@ -11,7 +11,8 @@ RESULTS = {
   problem_008: 23_514_624_000,
   problem_009: 31_875_000,
   problem_010: 142_913_828_922,
-  problem_011: 70_600_674
+  problem_011: 70_600_674,
+  problem_012: 76_576_500
 }.freeze
 
 PROBLEMS_POSTFIXES = %w(
@@ -26,6 +27,7 @@ PROBLEMS_POSTFIXES = %w(
   009
   010
   011
+  012
 ).freeze
 
 PROBLEMS_POSTFIXES.each do |postfix|
