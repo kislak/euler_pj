@@ -40,6 +40,8 @@ class Problem008 < Problem
     end
   end
 
+  private
+
   def calculate_product(idx)
     product = 1
     NUMBER_OF_DIGITS.times { |index| product *= @ar[idx + index] }

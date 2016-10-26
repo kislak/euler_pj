@@ -2,7 +2,7 @@
 
 export FLAY_SCORE=20
 
-ruby_files=`find -L . | grep -e '\.rb$' | grep -e '00[1-9]' -e 'problem_spec' | xargs`
+ruby_files=`find -L . | grep -e '\.rb$' | grep -e '00[1-9]' -e 'problem_spec' -e '01[1]' | xargs`
 
 echo -e "\n\n\nsecurity check results\n"
 bundle exec warder --bundle-audit

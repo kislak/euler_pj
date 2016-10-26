@@ -25,6 +25,7 @@ PROBLEMS_POSTFIXES = %w(
   008
   009
   010
+  011
 ).freeze
 
 PROBLEMS_POSTFIXES.each do |postfix|
