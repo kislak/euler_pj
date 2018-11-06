@@ -16,13 +16,10 @@ require 'problem'
 class Problem002 < Problem
   LIMIT = 4_000_000
 
-  def initialize
-    super
+  def calculate
     @fibo = 1
     @fibo_next = 1
-  end
 
-  def calculate
     while @fibo < LIMIT
       @fibo_next, @fibo = @fibo + @fibo_next, @fibo_next
       @result += @fibo if @fibo.even?
